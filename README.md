@@ -71,7 +71,7 @@ Rain, rain go away, come again another day! ION 507 zips up King St. heading nor
 
 #### Title Cards
 
-In a last minute add, in order to title the video, a quick way of making title cards was devised.  Using the [Advanced SubStation Alpha (ASS)](https://en.wikipedia.org/wiki/SubStation_Alpha#Advanced_SubStation_Alpha) subtitle format, which has rich support for fonts, colours, positioning, and more, simple title cards were added to the filter graph.  In order to to this a dummy video source was used that is generated on-the-fly by FFMPEG and is just a solid background colour.
+In a last minute addition to add a title to the generated video, a quick way of making title cards was devised.  Using the [Advanced SubStation Alpha (ASS)](https://en.wikipedia.org/wiki/SubStation_Alpha#Advanced_SubStation_Alpha) subtitle format, which has rich support for fonts, colours, positioning, and more, simple title cards were added to the filter graph.  In order to to this a dummy video source was used that is generated on-the-fly by FFMPEG and is just a solid background colour.
 
 ##### Dummy Video Input 
 
