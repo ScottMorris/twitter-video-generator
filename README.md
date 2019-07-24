@@ -32,7 +32,7 @@ You will get an output to your video directory of two files.
 
 # Complex Filters
 
-FFMPEG is quite power through the use of [filters](https://ffmpeg.org/ffmpeg-filters.html).  In order to perform more complex operations, like burning subtitles onto videos of different shapes and sizes, and concatenate all the videos together, a complex filter graph is needed.
+FFMPEG can perform complex stream manipulations through the use of [filters](https://ffmpeg.org/ffmpeg-filters.html).  In order to perform operations, like burning subtitles onto videos of different shapes and sizes or concatenate various videos together, a complex filter graph is needed.
 
 ## Different Sizes
 
