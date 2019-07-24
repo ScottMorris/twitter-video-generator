@@ -142,7 +142,7 @@ In order to tell FFMPEG to execute the filer graph the argument `-filter_complex
 
 Below is a sample of command that the script generates. It incorporates the various input videos that were acquired from Twitter, along with some generated inputs to help with title card subtitle overlays and audioless clips, and applies a complex filter graph which corrects for the video anomalies and burns the generated subtitles onto the videos.  It then maps the output of the filter graph as the video and audio stream to be compressed.
 
-This sample shows the use of [libx264](https://www.videolan.org/developers/x264.html), FFMPEG's [documentation](https://trac.ffmpeg.org/wiki/Encode/H.264), as the video codec, with an output framerate of 59.94 fps (60000/1001).  The audio here is being encoded using FFMPEG's [Advanced Audio Coding (AAC)](https://trac.ffmpeg.org/wiki/Encode/AAC) encoded at 128 kbps, 2 channel.
+This sample shows the use of [libx264](https://www.videolan.org/developers/x264.html), FFMPEG's [documentation](https://trac.ffmpeg.org/wiki/Encode/H.264), as the video codec, with an output framerate of 59.94 fps (60000/1001).  The audio is being encoded using FFMPEG's [Advanced Audio Coding (AAC)](https://trac.ffmpeg.org/wiki/Encode/AAC) encoded at 128 kbps, 2 channels.
 
 The reason the framerate, `-r`, and the number of audio channels, `-ac`, are being specified is due to not all the videos having the same formats.  Without them FFPEG will default to the first values it finds in the video and audio streams.  If they are odd then the output will be penalized.  This way it knows what the desired output should be.
 
