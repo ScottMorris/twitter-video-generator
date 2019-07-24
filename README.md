@@ -58,7 +58,7 @@ Some videos came in different aspect ratios from the regular horizontal/portrait
 "scale=w=1280:h=720:force_original_aspect_ratio=1,pad=1280:720:(ow-iw)/2:(oh-ih)/2[asd]; [asd]"
 ```
 
-### Subtitle
+## Subtitles
 
 The Tweet information is burned onto the video using the [`subtitles`](https://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo) filter.  This filter hands the fonts and everything for you.  The subtitles used for the tweets is the `srt` format that is quite prevalent.  Each video gets an 8 second subtitle with one entry containing the Tweet, the author, and month & year the Tweet was made.  Here is a sample of one of the `srt` files.
 
@@ -69,11 +69,11 @@ Rain, rain go away, come again another day! ION 507 zips up King St. heading nor
 <i>@IanBMorris – May 2019</i>
 ```
 
-#### Title Cards
+### Title Cards
 
 In a last minute addition to add a title to the generated video, a quick way of making title cards was devised.  Using the [Advanced SubStation Alpha (ASS)](https://en.wikipedia.org/wiki/SubStation_Alpha#Advanced_SubStation_Alpha) subtitle format, which has rich support for fonts, colours, positioning, and more, simple title cards were added to the filter graph.  In order to to this a dummy video source was used that is generated on-the-fly by FFMPEG and is just a solid background colour.
 
-##### Dummy Video Input 
+#### Dummy Video Input 
 
 At the end of the FFMPEG input list, eg. `ffmpeg -i video.mp4 -i video2.mp4 ...` the following was added to generate a solid colour background to overlay the title cards on.
 
@@ -81,18 +81,18 @@ At the end of the FFMPEG input list, eg. `ffmpeg -i video.mp4 -i video2.mp4 ...`
 -f lavfi -i color=c="#006bb6":s=1280x720:d=40
 ```
 
-##### Title Card Subtitle Filter
+#### Title Card Subtitle Filter
 
 The `ass` filter was used to burn the title card subtitles onto the video.
 ```
 [296:v]ass=I\\:\\\\_\\\\Twitter videos\\\\test 11\\\\Title Cards.ass[v0]
 ```
 
-### Filter for One Video
+## Filter for One Video
 
 With all the pieces in place a filter for one video looks like the following.
 
-#### Regular Video
+### Regular Video
 
 ```
 [9:v:0]subtitles=I\\:\\\\_\\\\Twitter videos\\\\test 11\\\\ZSFdBV_OHgSg9lNf.srt[v10];
@@ -102,7 +102,7 @@ Here you can see input video with index 9's first video track `[9:v:0]` is the s
 
 *Note*: the filter graph for the subtiles needs all these `\`s.
 
-#### Portrait Video
+### Portrait Video
 
 ```
 [28:v:0]scale=ih*16/9:-1,boxblur=luma_radius=min(h\,w)/20:luma_power=1:chroma_radius=min(cw\,ch)/20:chroma_power=1[bg];[bg][28:v:0]overlay=(W-w)/2:(H-h)/2,crop=h=iw*9/16[vid]; [vid]scale=1280:720[asd]; [asd]subtitles=I\\:\\\\_\\\\Twitter videos\\\\test 11\\\\eJ9JlE4wygkowl85.srt[v29]
@@ -110,7 +110,7 @@ Here you can see input video with index 9's first video track `[9:v:0]` is the s
 
 *Note*: The `[asd]` variable is a badly named temp variable to allow the scaling filter be the input to the subtitle filter.
 
-### Concatenation
+## Concatenation
 
 In order to concatenate the videos together with FFMPEG the [`concat`](https://trac.ffmpeg.org/wiki/Concatenate) filter is used.  See _Concatenation of files with different codecs_ at the linked page.  Once all the videos have their filter chains generated for them, and are assigned an output variable, they can be concatenated together
 
@@ -126,7 +126,7 @@ Here, `[v0]` is a video generated with its own filter chain and `[4:a]` is dummy
 
 Finally, `concat` is told how many video's it is concatenating, and what the stream order is, and the filter output is assigned.
 
-#### Dummy Audio Input
+### Dummy Audio Input
 
 Not all videos will have audio, so a dummy audio stream is used in place of the video clip's non-existent audio track. Similar to [Dummy Video Input](#dummy-video-input) above, the dummy audio input is added to the input section of the FFMPEG command.
 
@@ -134,7 +134,7 @@ Not all videos will have audio, so a dummy audio stream is used in place of the 
 -f lavfi -t 0.1 -i anullsrc
 ```
 
-### Calling the Filter Graph
+## Calling the Filter Graph
 
 In order to tell FFMPEG to execute the filer graph the argument `-filter_complex_script` is added to the command with the path to the complex filter script.  The outputs are of the filter graph, `[outv]` and `[outa]` are then mapped to tell FFMPEG what stream to use, `-map "[outv]" -map "[outa]"`.
 
