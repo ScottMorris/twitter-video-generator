@@ -4,6 +4,8 @@ Enter a Hashtag, get a video timeline.
 
 This project started as a way of capturing the progression of the Region of Waterloo's ION Light Rail system, that opened June 21<sup>st</sup>, 2019.  It takes a search query, downloads the associated tweets, downloads the associated videos to the tweets, generates `srt` format subtitles with the Tweet information and generates the required FFMPEG command to concatenate the videos together.
 
+_Shameless plug_: Here is the final copy of the generated video this project was written for, [_ION Light Rail as seen from #wrLRT_](https://youtu.be/__nGhZ2P25E).
+
 # Tech Used
 
 * [LINQPad](https://www.linqpad.net/)
