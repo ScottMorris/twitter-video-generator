@@ -217,10 +217,6 @@ void Main()
 
 }
 
-//string generateFilterForVideo() {
-//	
-//}
-
 #region MediaInfo
 bool NonStandardVideoSize(string filePath, int desiredWidth, int desiredHeight)
 {
@@ -339,8 +335,8 @@ string GetAuthorizationHeader(HttpWebRequest httpWebRequest, string consumerKey,
 	var timeStamp = ((int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds).ToString();
 	var nonce = EscapeUriDataStringRfc3986(Convert.ToBase64String(Encoding.UTF8.GetBytes(timeStamp)));
 
-https://tools.ietf.org/html/rfc5849#section-3.3
-	  //https://twittercommunity.com/t/how-to-generate-oauth-signature-for-batch-api-requests-that-have-a-json-array-parameter/64036
+ 	//https://tools.ietf.org/html/rfc5849#section-3.3
+	//https://twittercommunity.com/t/how-to-generate-oauth-signature-for-batch-api-requests-that-have-a-json-array-parameter/64036
 	var thing = new[] {
 		EscapeUriDataStringRfc3986("oauth_consumer_key=" + (consumerKey)),
 		EscapeUriDataStringRfc3986("&oauth_nonce=" + (nonce)),
