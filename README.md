@@ -50,7 +50,7 @@ Here is a sample, from the Stack Overflow solution, that illistrates the effect,
 
 ### Odd Shaped Videos
 
-Some videos came in different aspect ratios from the regular horizontal/portrait 16:9 720p videos.  An example of this are 3:2 videos from high quality cameras, or 1:1 videos from Instagram users 😅.  These videos are handled through a special filter in the filter graph, but it only adds black bars to correct the aspect ratio and have it match 16:9 720p.
+Some videos came in different aspect ratios from the regular horizontal/portrait 16:9 720p videos.  An example of this are 3:2 videos from high quality cameras, or 1:1 videos from Instagram users 😅.  These videos are handled through a special filter in the filter graph, but it only adds black bars to correct the aspect ratio and have it match 16:9 720p. ([Super User solution](https://superuser.com/a/991412))
 
 ```cs
 "scale=w=1280:h=720:force_original_aspect_ratio=1,pad=1280:720:(ow-iw)/2:(oh-ih)/2[asd]; [asd]"
