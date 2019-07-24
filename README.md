@@ -46,7 +46,7 @@ Vertical videos are really annoying to handle, but none the less people insist o
 
 In this filter the [] items represent named variables of data used in the filter chain.  They can be used to pick a part parts of the input, as well as define intermediate components and output streams
 
-Here is a sample, from the Stack Overflow solution, that illistrates the effect, [https://www.youtube.com/watch?v=CgZsDLfzrTs](https://www.youtube.com/watch?v=CgZsDLfzrTs).
+Here is a sample, from the Stack Overflow solution, that illustrates the effect, [https://www.youtube.com/watch?v=CgZsDLfzrTs](https://www.youtube.com/watch?v=CgZsDLfzrTs).
 
 ### Odd Shaped Videos
 
@@ -58,7 +58,7 @@ Some videos came in different aspect ratios from the regular horizontal/portrait
 
 ### Subtitle
 
-The Tweet information is burned onto the video using the [`subtitles`](https://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo) filter.  This filter hands the fonts and everything for you.  The subtitles used for the tweets is the `srt` format that is quite prevelent.  Each video gets an 8 second subtitle with one entry containing the Tweet, the author, and month & year the Tweet was made.  Here is a sample of one of the `srt` files.
+The Tweet information is burned onto the video using the [`subtitles`](https://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo) filter.  This filter hands the fonts and everything for you.  The subtitles used for the tweets is the `srt` format that is quite prevalent.  Each video gets an 8 second subtitle with one entry containing the Tweet, the author, and month & year the Tweet was made.  Here is a sample of one of the `srt` files.
 
 ```
 1
@@ -69,7 +69,7 @@ Rain, rain go away, come again another day! ION 507 zips up King St. heading nor
 
 #### Title Cards
 
-In a last minute add, in order to title the video, a quick way of making title cards was devised.  Using the [Advanced SubStation Alpha (ASS)](https://en.wikipedia.org/wiki/SubStation_Alpha#Advanced_SubStation_Alpha) subtitle format, which has rich support for fonts, colours, positioning, and more, simple title cards were added to the filter graph.  In order to to this a dummy video source was used that is generated on-the-fly by FFPEG and is just a solid background colour.
+In a last minute add, in order to title the video, a quick way of making title cards was devised.  Using the [Advanced SubStation Alpha (ASS)](https://en.wikipedia.org/wiki/SubStation_Alpha#Advanced_SubStation_Alpha) subtitle format, which has rich support for fonts, colours, positioning, and more, simple title cards were added to the filter graph.  In order to to this a dummy video source was used that is generated on-the-fly by FFMPEG and is just a solid background colour.
 
 ##### Dummy Video Input 
 
@@ -140,7 +140,7 @@ In order to tell FFMPEG to execute the filer graph the argument `-filter_complex
 
 Below is a sample of command that the script generates. It incorporates the various input videos that were acquired from Twitter, along with some generated inputs to help with title card subtitle overlays and audioless clips, and applies a complex filter graph which corrects for the video anomalies and burns the generated subtitles onto the videos.  It then maps the output of the filter graph as the video and audio stream to be compressed.
 
-This sample shows the use of [libx264](https://www.videolan.org/developers/x264.html), FFMPEG's [documentation](https://trac.ffmpeg.org/wiki/Encode/H.264), as the video codec, with an output framerate of 59.94 fps (60000/1001).  The audio here is being encoded using FFPEG's [Advanced Audio Coding (AAC)](https://trac.ffmpeg.org/wiki/Encode/AAC) encoded at 128 kbps, 2 channel.
+This sample shows the use of [libx264](https://www.videolan.org/developers/x264.html), FFMPEG's [documentation](https://trac.ffmpeg.org/wiki/Encode/H.264), as the video codec, with an output framerate of 59.94 fps (60000/1001).  The audio here is being encoded using FFMPEG's [Advanced Audio Coding (AAC)](https://trac.ffmpeg.org/wiki/Encode/AAC) encoded at 128 kbps, 2 channel.
 
 The reason the framerate, `-r`, and the number of audio channels, `-ac`, are being specified is due to not all the videos having the same formats.  Without them FFPEG will default to the first values it finds in the video and audio streams.  If they are odd then the output will be penalized.  This way it knows what the desired output should be.
 
