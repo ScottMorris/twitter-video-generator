@@ -36,7 +36,7 @@ FFMPEG is quite power through the use of [filters](https://ffmpeg.org/ffmpeg-fil
 
 ## Different Sizes
 
-Not all videos downloaded from Twitter are the same shape and size.  Even though the script tries to do its best to download everything ins 720p (1280 x 720) some of the videos are portrait (720 x 1280) and others have other aspect ratios.  This is a challenge when trying to concatenate them all into one video.  The script uses the [MediaInfo NuGet Wrapper](https://github.com/StefH/MediaInfo.DotNetWrapper) to determine various parameters about the videos and different filters are applied depending on what is found.
+Not all videos downloaded from Twitter are the same shape and size.  Even though the script tries to do its best to download everything in 720p (1280 x 720), some of the videos are portrait (720 x 1280), and others have other aspect ratios.  This is a challenge when trying to concatenate them all into one video.  The script uses the [MediaInfo NuGet Wrapper](https://github.com/StefH/MediaInfo.DotNetWrapper) to determine various parameters about the videos and different filters are applied depending on what is found.
 
 ### Portrait Videos
 
